@@ -7,6 +7,37 @@
              
              
              
-             
+<Grid>
+
+<Image Source="fundo1.jpg"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill"/>
+
+
+<Image Source="nave.jpg"
+        HorizontalOptions="Fill"
+        WidthRequest="50"
+        HeightRequest="50"/>
+
+<Image Source="cano.png"
+       HorizontalOptions="End"
+       VerticalOptions="End"/>
+
+<Image Source="cano.png"
+       HorizontalOptions="End"
+       VerticalOptions="End"/>
+
+<Image Source="chao.png"
+       HorizontalOptions="Fill"
+       VerticalOptions="End"/>
+
+
+
+
+
+
+
+
+</Grid>
              
 </ContentPage>
