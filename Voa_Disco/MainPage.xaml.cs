@@ -9,6 +9,9 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-
+ private void irjogar(object sender, EventArgs args)
+	{
+		Application.Current.MainPage = new GamePage();
+}
 }
 
