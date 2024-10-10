@@ -10,27 +10,26 @@
              
 <Grid>
 
-<Image Source="fundo1.jpg"
+<Image Source="fundo.png"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"/>
 
 
-<Image Source="nave.jpg"
+<Image Source="nave.png"
+        x:Name="navelol"
         HorizontalOptions="Fill"
         WidthRequest="50"
         HeightRequest="50"/>
 
-<Image Source="cano.png"
+<Image Source="nano1.png"
+       HorizontalOptions="End"
+       VerticalOptions="Start"/>
+
+<Image Source="cano2.png"
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
-<Image Source="cano.png"
-       HorizontalOptions="End"
-       VerticalOptions="End"/>
 
-<Image Source="chao.png"
-       HorizontalOptions="Fill"
-       VerticalOptions="End"/>
 
 
 
