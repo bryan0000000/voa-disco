@@ -10,7 +10,7 @@
              
 <Grid>
 
-<Image Source="fundo.png"
+<Image Source="fundo2.png"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"/>
 
@@ -21,13 +21,32 @@
         WidthRequest="50"
         HeightRequest="50"/>
 
-<Image Source="nano1.png"
+<Image Source="cano1.png" 
+       x:Name="cano1"
        HorizontalOptions="End"
        VerticalOptions="Start"/>
 
 <Image Source="cano2.png"
+       x:Name="cano2"
        HorizontalOptions="End"
        VerticalOptions="End"/>
+
+<Image Source="chao.png"
+      
+       HorizontalOptions="Fill"
+       VerticalOptions="End"/>
+ 
+ <Frame x:Name="framemorreu"
+        BackgroundColor="#99000000"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+ <Frame.GestureRecognizers>
+ <TapGestureRecognizer Tapped="morreu"/>
+ </Frame.GestureRecognizers>
+ <Image Source="start.png"/>
+ </Frame>
+ 
+ 
 
 
 

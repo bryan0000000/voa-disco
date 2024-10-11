@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Voa_Disco.MainPage"
             Shell.NavBarIsVisible="false"
-            BackgroundImageSource="naveloca.jpg">
+            BackgroundImageSource="trladeicio.png">
  
     <Grid>
         <Grid.RowDefinitions>
