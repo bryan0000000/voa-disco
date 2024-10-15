@@ -9,6 +9,9 @@
              
              
 <Grid>
+<Grid.GestureRecognizers>
+<TapGestureRecognizer Tapped="pulagarai"/>
+</Grid.GestureRecognizers>
 
 <Image Source="fundo2.png"
         HorizontalOptions="Fill"
@@ -31,10 +34,6 @@
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
-<Image Source="chao.png"
-      
-       HorizontalOptions="Fill"
-       VerticalOptions="End"/>
  
  <Frame x:Name="framemorreu"
         BackgroundColor="#99000000"

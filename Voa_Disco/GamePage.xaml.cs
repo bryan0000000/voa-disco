@@ -5,8 +5,12 @@ const int Gravidade=5;
 const int TempoEntreFrames=20;
 bool EstarMorto=true;
 double LarguraDaJanela=0;
-double AlturaDaJanela=0;
+double AlturaDaJanela=200;
 int Velocidade=7;
+const int maxTempopulo=2;
+int tempopulo=0;
+bool estarPulo=false;
+const int ForcaPulo=25;
 
 void Inicializar()
 {
@@ -28,11 +32,22 @@ void Inicializar()
 	 {
        while (!EstarMorto)
        {
+		if(estarPulo)
+		Aplicapulo();
+		else
 		AplicaGravidade();
 		await Task.Delay(TempoEntreFrames);
 		MovimentacaoDosCanos();
-	   }
-	 }
+		if(VerificaColisao())
+    {
+	  EstarMorto=true;
+	  framemorreu.IsVisible=true;
+	  break;
+	}
+
+	}
+	await Task.Delay(TempoEntreFrames);
+	}
     
 
 protected override void OnSizeAllocated ( double w, double h )
@@ -53,20 +68,61 @@ void MovimentacaoDosCanos()
 
 }
 
-void morreu( object s,TappedEventArgs a)
+async void morreu( object s,TappedEventArgs a)
 {
 
 	framemorreu.IsVisible =false;
 	Inicializar();
 	Desenhar();
+	
+
+}
+
+bool VerificaColisao()
+{
+ if(!EstarMorto)
+ {
+  if(VerificaColisaoTeto()||
+     VerificaColisaoChao())
+    {
+	 return true;
+	}
+ }
+     return false;
+}
+
+bool VerificaColisaoTeto()
+{
+var minY=-AlturaDaJanela/2;
+if(navelol.TranslationY<=minY)
+return true;
+else
+return false;
+}
+bool VerificaColisaoChao()
+{
+	var maxY=AlturaDaJanela/2;
+	if(navelol.TranslationY>=maxY)
+	return true;
+	else
+	return false;
 }
 
 
-
-
-
-
-
+void Aplicapulo()
+ {
+navelol.TranslationY-=ForcaPulo;
+tempopulo++;
+if(tempopulo>=maxTempopulo)
+ {
+	estarPulo=false;
+	tempopulo=0;
+ }
+ }
+ void pulagarai(object s, TappedEventArgs a)
+ {
+	estarPulo=true;
+ }
 
 
 }
