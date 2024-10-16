@@ -11,6 +11,7 @@ const int maxTempopulo=2;
 int tempopulo=0;
 bool estarPulo=false;
 const int ForcaPulo=25;
+const int AberturaMin=200;
 
 void Inicializar()
 {
@@ -57,13 +58,16 @@ protected override void OnSizeAllocated ( double w, double h )
 }
 void MovimentacaoDosCanos()
 {
- cano1.TranslationX -= Velocidade;
+ cano1.TranslationX -=Velocidade;
  cano2.TranslationX -=Velocidade;
-
- if (cano1.TranslationX<-LarguraDaJanela)
+ if (cano2.TranslationX<-LarguraDaJanela)
  {
 	cano1.TranslationX=0;
     cano2.TranslationX=0;
+    var alturaMax=-100;
+	var alturaMin=-cano1.HeightRequest;
+	cano2.TranslationY=Random.Shared.Next((int)alturaMin, (int)alturaMax);
+	cano1.TranslationY=cano1.TranslationY+AberturaMin+cano1.HeightRequest;
  }
 
 }

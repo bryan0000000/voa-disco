@@ -21,16 +21,19 @@
 <Image Source="nave.png"
         x:Name="navelol"
         HorizontalOptions="Fill"
-        WidthRequest="50"
         HeightRequest="50"/>
 
-<Image Source="cano1.png" 
+<Image Source="cano2.png" 
        x:Name="cano1"
+       BackgroundColor="red"
+       HeightRequest="400"
        HorizontalOptions="End"
        VerticalOptions="Start"/>
 
-<Image Source="cano2.png"
+<Image Source="cano1.png"
        x:Name="cano2"
+        BackgroundColor="red"
+        HeightRequest="400"
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
