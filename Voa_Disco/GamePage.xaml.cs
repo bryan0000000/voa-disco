@@ -1,7 +1,7 @@
 namespace Voa_Disco;
 public partial class GamePage : ContentPage
 {
-const int Gravidade=5;
+const int Gravidade=7;
 const int TempoEntreFrames=20;
 bool EstarMorto=true;
 double LarguraDaJanela=0;
@@ -10,8 +10,9 @@ int Velocidade=7;
 const int maxTempopulo=2;
 int tempopulo=0;
 bool estarPulo=false;
-const int ForcaPulo=25;
-const int AberturaMin=200;
+const int ForcaPulo=28;
+const int AberturaMin=100;
+int pomto=0;
 
 void Inicializar()
 {
@@ -64,6 +65,8 @@ void MovimentacaoDosCanos()
  {
 	cano1.TranslationX=0;
     cano2.TranslationX=0;
+	pomto++;
+	LabelPomtos.Text="canos "+pomto.ToString("D3");
     var alturaMax=-100;
 	var alturaMin=-cano1.HeightRequest;
 	cano2.TranslationY=Random.Shared.Next((int)alturaMin, (int)alturaMax);

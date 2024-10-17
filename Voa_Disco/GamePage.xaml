@@ -13,27 +13,34 @@
 <TapGestureRecognizer Tapped="pulagarai"/>
 </Grid.GestureRecognizers>
 
+
+
 <Image Source="fundo2.png"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"/>
 
+<Label Text=""
+       x:Name="LabelPomtos"
+       HorizontalOptions="End"
+       FontFamily="Crang.ttf"
+       VerticalOptions="Start"/>
 
 <Image Source="nave.png"
         x:Name="navelol"
         HorizontalOptions="Fill"
         HeightRequest="50"/>
 
-<Image Source="cano2.png" 
+<Image Source="pilar.png" 
        x:Name="cano1"
        BackgroundColor="red"
-       HeightRequest="400"
+       HeightRequest="620"
        HorizontalOptions="End"
        VerticalOptions="Start"/>
 
-<Image Source="cano1.png"
+<Image Source="pilar1.png"
        x:Name="cano2"
         BackgroundColor="red"
-        HeightRequest="400"
+        HeightRequest="620"
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
@@ -45,7 +52,12 @@
  <Frame.GestureRecognizers>
  <TapGestureRecognizer Tapped="morreu"/>
  </Frame.GestureRecognizers>
+  <VerticalStackLayout>
+ <Label Text="você pasou por"
+        VerticalOptions="Start"
+       />
  <Image Source="start.png"/>
+ </VerticalStackLayout>
  </Frame>
  
  
