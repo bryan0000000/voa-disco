@@ -4,20 +4,26 @@ public partial class GamePage : ContentPage
 const int Gravidade=7;
 const int TempoEntreFrames=20;
 bool EstarMorto=true;
-double LarguraDaJanela=0;
+double LarguraDaJanela=200;
 double AlturaDaJanela=200;
 int Velocidade=7;
 const int maxTempopulo=2;
 int tempopulo=0;
 bool estarPulo=false;
 const int ForcaPulo=28;
-const int AberturaMin=100;
+const int AberturaMin=40;
 int pomto=0;
 
 void Inicializar()
 {
 	EstarMorto=false;
+	cano2.TranslationX=-LarguraDaJanela;
+	cano1.TranslationX=-LarguraDaJanela;
+	navelol.TranslationX=0;
 	navelol.TranslationY=0;
+	pomto=0;
+	MovimentacaoDosCanos();
+
 }
 
     public GamePage()
@@ -90,7 +96,9 @@ bool VerificaColisao()
  if(!EstarMorto)
  {
   if(VerificaColisaoTeto()||
-     VerificaColisaoChao())
+     VerificaColisaoChao()||
+	VerificaColisaoCanoCima()||
+	VerificaColisaoCanoBaixo())
     {
 	 return true;
 	}
@@ -114,6 +122,40 @@ bool VerificaColisaoChao()
 	else
 	return false;
 }
+bool VerificaColisaoCanoCima()
+{
+    var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
+	var posVNave = (AlturaDaJanela/2)-(navelol.HeightRequest/2)+navelol.TranslationY;
+    if (posHNave >=Math.Abs(cano2.TranslationX)-cano2.HeightRequest &&
+	posHNave <=Math.Abs(cano2.TranslationX)+cano2.WidthRequest &&
+	posVNave <=cano2.HeightRequest +cano2.TranslationY)
+	{
+	return true;
+	}	
+	else
+	{
+	return false;
+	}
+	
+}
+bool VerificaColisaoCanoBaixo()
+{
+    var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
+	var posVNave = (AlturaDaJanela/2)-(navelol.HeightRequest/2)+navelol.TranslationY;
+    if (posHNave >=cano1.TranslationX &&
+	    posHNave <=cano1.TranslationX + cano1.WidthRequest &&
+		posVNave >=cano1.TranslationY &&
+		posVNave <= cano1.TranslationY + cano1.HeightRequest)
+	{
+	return true;
+	}	
+	else
+	{
+	return false;
+	}
+	
+}
+
 
 
 void Aplicapulo()
