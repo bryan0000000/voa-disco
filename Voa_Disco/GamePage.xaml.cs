@@ -142,10 +142,10 @@ bool VerificaColisaoCanoBaixo()
 {
     var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
 	var posVNave = (AlturaDaJanela/2)-(navelol.HeightRequest/2)+navelol.TranslationY;
-    if (posHNave >=cano1.TranslationX &&
-	    posHNave <=cano1.TranslationX + cano1.WidthRequest &&
-		posVNave >=cano1.TranslationY &&
-		posVNave <= cano1.TranslationY + cano1.HeightRequest)
+	var yMaxcano = cano2.HeightRequest + cano2.TranslationY + AberturaMin;
+    if (posHNave >=Math.Abs (cano1.TranslationX) - cano1.WidthRequest &&
+	    posHNave <=Math.Abs (cano1.TranslationX) + cano1.WidthRequest &&
+		posVNave >=yMaxcano)
 	{
 	return true;
 	}	
