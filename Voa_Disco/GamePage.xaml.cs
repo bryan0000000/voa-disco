@@ -11,7 +11,7 @@ const int maxTempopulo=2;
 int tempopulo=0;
 bool estarPulo=false;
 const int ForcaPulo=28;
-const int AberturaMin=40;
+const int AberturaMin=200;
 int pomto=0;
 
 void Inicializar()
@@ -62,6 +62,8 @@ protected override void OnSizeAllocated ( double w, double h )
 {
   LarguraDaJanela=w;
   AlturaDaJanela=h;
+  cano2.WidthRequest=180;
+  cano1.WidthRequest=180;
 }
 void MovimentacaoDosCanos()
 {
@@ -93,17 +95,14 @@ async void morreu( object s,TappedEventArgs a)
 
 bool VerificaColisao()
 {
- if(!EstarMorto)
- {
-  if(VerificaColisaoTeto()||
-     VerificaColisaoChao()||
-	VerificaColisaoCanoCima()||
-	VerificaColisaoCanoBaixo())
-    {
-	 return true;
-	}
- }
-     return false;
+ 
+ 
+  return VerificaColisaoTeto()||
+         VerificaColisaoChao()||
+	     VerificaColisaoCanoCima()||
+	     VerificaColisaoCanoBaixo();
+
+
 }
 
 bool VerificaColisaoTeto()
@@ -141,7 +140,7 @@ bool VerificaColisaoCanoCima()
 bool VerificaColisaoCanoBaixo()
 {
     var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
-	var posVNave = (AlturaDaJanela/2)-(navelol.HeightRequest/2)+navelol.TranslationY;
+	var posVNave = (AlturaDaJanela/2)+(navelol.HeightRequest/2)+navelol.TranslationY;
 	var yMaxcano = cano2.HeightRequest + cano2.TranslationY + AberturaMin;
     if (posHNave >=Math.Abs (cano1.TranslationX) - cano1.WidthRequest &&
 	    posHNave <=Math.Abs (cano1.TranslationX) + cano1.WidthRequest &&

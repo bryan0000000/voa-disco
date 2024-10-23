@@ -32,17 +32,17 @@
         VerticalOptions="Center"
         HeightRequest="50"/>
 
-<Image Source="pilar.png" 
+<Image Source="barretaobaixo.png" 
        x:Name="cano1"
        BackgroundColor="red"
-       HeightRequest="620"
+       HeightRequest="400"
        HorizontalOptions="End"
        VerticalOptions="Start"/>
 
-<Image Source="pilar1.png"
+<Image Source="barretaocima.png"
        x:Name="cano2"
         BackgroundColor="red"
-        HeightRequest="620"
+        HeightRequest="400"
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
