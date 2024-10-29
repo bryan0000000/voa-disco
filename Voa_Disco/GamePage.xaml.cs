@@ -11,12 +11,13 @@ const int maxTempopulo=2;
 int tempopulo=0;
 bool estarPulo=false;
 const int ForcaPulo=28;
-const int AberturaMin=200;
+const int AberturaMin=100;
 int pomto=0;
 
 void Inicializar()
 {
 	EstarMorto=false;
+	 SoundHelper.Play("Ultra sans cancion.mp3");
 	cano2.TranslationX=-LarguraDaJanela;
 	cano1.TranslationX=-LarguraDaJanela;
 	navelol.TranslationX=0;
@@ -49,6 +50,7 @@ void Inicializar()
 		if(VerificaColisao())
     {
 	  EstarMorto=true;
+	 SoundHelper.Play("morte.mp3");
 	  framemorreu.IsVisible=true;
 	  break;
 	}
@@ -62,8 +64,9 @@ protected override void OnSizeAllocated ( double w, double h )
 {
   LarguraDaJanela=w;
   AlturaDaJanela=h;
-  cano2.WidthRequest=180;
-  cano1.WidthRequest=180;
+  cano2.WidthRequest=100;
+  cano1.WidthRequest=100;
+
 }
 void MovimentacaoDosCanos()
 {
@@ -123,35 +126,33 @@ bool VerificaColisaoChao()
 }
 bool VerificaColisaoCanoCima()
 {
-    var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
-	var posVNave = (AlturaDaJanela/2)-(navelol.HeightRequest/2)+navelol.TranslationY;
-    if (posHNave >=Math.Abs(cano2.TranslationX)-cano2.HeightRequest &&
-	posHNave <=Math.Abs(cano2.TranslationX)+cano2.WidthRequest &&
-	posVNave <=cano2.HeightRequest +cano2.TranslationY)
-	{
-	return true;
-	}	
-	else
-	{
-	return false;
-	}
-	
+  	 var posicaoHorizontalPardal = (LarguraDaJanela - 50) - (navelol.WidthRequest / 2);
+    var posicaoVerticalPardal   = (AlturaDaJanela / 2) - (navelol.HeightRequest / 2) + navelol.TranslationY;
+
+    if (
+         posicaoHorizontalPardal >= Math.Abs(cano1.TranslationX) - cano1.WidthRequest &&
+         posicaoHorizontalPardal <= Math.Abs(cano1.TranslationX) + cano1.WidthRequest &&
+         posicaoVerticalPardal   <= cano1.HeightRequest + cano1.TranslationY
+       )
+      return true;
+    else
+      return false;
 }
 bool VerificaColisaoCanoBaixo()
 {
-    var posHNave = (LarguraDaJanela/2)-(navelol.HeightRequest/2);
-	var posVNave = (AlturaDaJanela/2)+(navelol.HeightRequest/2)+navelol.TranslationY;
-	var yMaxcano = cano2.HeightRequest + cano2.TranslationY + AberturaMin;
-    if (posHNave >=Math.Abs (cano1.TranslationX) - cano1.WidthRequest &&
-	    posHNave <=Math.Abs (cano1.TranslationX) + cano1.WidthRequest &&
-		posVNave >=yMaxcano)
-	{
-	return true;
-	}	
-	else
-	{
-	return false;
-	}
+        var posicaoHorizontalPardal = LarguraDaJanela - 50 - navelol.WidthRequest / 2;
+    var posicaoVerticalPardal   = (AlturaDaJanela / 2) + (navelol.HeightRequest / 2) + navelol.TranslationY;
+
+    var yMaxCano = cano2.HeightRequest + cano2.TranslationY + AberturaMin;
+
+    if (
+         posicaoHorizontalPardal >= Math.Abs(cano2.TranslationX) - cano2.WidthRequest &&
+         posicaoHorizontalPardal <= Math.Abs(cano2.TranslationX) + cano2.WidthRequest &&
+         posicaoVerticalPardal   >= yMaxCano
+       )
+      return true;
+    else
+      return false;
 	
 }
 

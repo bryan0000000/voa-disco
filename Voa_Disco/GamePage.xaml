@@ -22,6 +22,7 @@
 <Label Text=""
        x:Name="LabelPomtos"
        HorizontalOptions="End"
+       TextColor="Wheat"
        FontFamily="Crang.ttf"
        VerticalOptions="Start"/>
 
@@ -32,17 +33,17 @@
         VerticalOptions="Center"
         HeightRequest="50"/>
 
-<Image Source="barretaobaixo.png" 
+<Image Source="canos.png" 
        x:Name="cano1"
        BackgroundColor="red"
-       HeightRequest="400"
+       HeightRequest="500"
        HorizontalOptions="End"
        VerticalOptions="Start"/>
 
-<Image Source="barretaocima.png"
+<Image Source="canob.png"
        x:Name="cano2"
         BackgroundColor="red"
-        HeightRequest="400"
+        HeightRequest="500"
        HorizontalOptions="End"
        VerticalOptions="End"/>
 
